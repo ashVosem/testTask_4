@@ -63,16 +63,36 @@ export const Container = styled.div`
   form {
     display: flex;
     padding-top: 10px;
-    > :nth-of-type(2) {
-      flex-basis: 20%;
-      @media (max-width: 600px) {
-        flex-basis: 40%;
-      }
-      background: rgb(223, 42, 42);
-      outline: 2px solid white;
-    }
   }
 `;
+export const RotatedButton = styled.div<{ isDisabled?: boolean }>`
+  overflow: hidden;
+  display: flex;
+
+  margin: 0;
+  z-index: 3;
+
+  width: auto;
+
+  @media (max-width: 600px) {
+    transform: skewX(0deg);
+    flex-basis: 60%;
+  }
+
+  transform: skewX(-30deg);
+
+  flex-basis: 20%;
+  @media (max-width: 600px) {
+    flex-basis: 40%;
+  }
+
+  outline: 2px solid white;
+
+  background: ${({ isDisabled }) =>
+    // eslint-disable-next-line no-nested-ternary
+    isDisabled ? "rgb(211, 147, 147)" : "rgb(223, 42, 42)"};
+`;
+
 export const RotatedField = styled.div<{ error?: boolean }>`
   overflow: hidden;
   display: flex;

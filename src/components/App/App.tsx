@@ -8,6 +8,7 @@ import {
   StyledInput,
   Container,
   RotatedField,
+  RotatedButton,
   Error,
   Layout,
   StyledImg,
@@ -80,11 +81,11 @@ export const App: FC = () => {
                   type="text"
                 />
               </RotatedField>
-              <RotatedField>
+              <RotatedButton isDisabled={isSubmitting}>
                 <Button disabled={isSubmitting} type="submit">
                   Search
                 </Button>
-              </RotatedField>
+              </RotatedButton>
               {errors.input && <Error>{errors.input}</Error>}
               {isSearchError && <Error>{searchErrorMessage}</Error>}
             </Form>
